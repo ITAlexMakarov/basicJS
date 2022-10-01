@@ -23,7 +23,11 @@ Student.prototype.addMark = function (mark) {
 
 //4. Добавлять студенту сразу несколько оценок
 Student.prototype.addMarks = function (...mark) {
-  this.marks = mark;
+  if(this.marks === undefined) { 
+    this.marks = mark;  // фрмировать массив с полученными оценками
+    } else {
+      this.marks.push(...mark);   //  если оценки передавались, то добавляем их с помощью метода push
+    }
 }
 
 //5. Среднее арифметическое оценок студента
